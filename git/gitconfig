@@ -1,0 +1,34 @@
+
+[user]
+	name = <fill_in>
+	email = <fill_in>
+[credential]
+	helper = cache --timeout=86400
+[alias]
+	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	hist = log --color --graph --abbrev-commit --date=short --pretty=format:'%Cred%h%Creset %Cgreen%ad%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset %C(green)(%cr)%Creset'
+	rm-del = rm $(git ls-files --deleted)
+	rm-del2 = !git ls-files -z --deleted | xargs -0 git rm
+	to-push = log --branches --not --remotes --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	undo = reset --hard HEAD~1
+	unadd = reset HEAD --
+	branches = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %09%(authorname) %09%(refname:short)'
+	ddt = difftool --dir-diff --no-symlinks
+
+[core]
+	excludesfile = /home/gesquivel/git_repos/global_gitignore
+[push]
+	default = simple
+[diff]
+	tool = bc3
+[difftool "bcompare"]
+	cmd = bcompare $LOCAL $REMOTE
+[difftool]
+	prompt = false
+	bc3 = trustExitCode
+[merge]
+	tool = bc3
+[mergetool]
+	bc3 = trustExitCode
+

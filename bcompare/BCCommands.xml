@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Produced by Beyond Compare 4 from Scooter Software -->
+<BCCommands Version="1" MinVersion="1">
+	<TDirCompareCommands>
+		<Items>
+			<CopyLeftAction Value="Ctrl+Left"/>
+			<CopyRightAction Value="Ctrl+Right"/>
+			<DiffNextAction Value="Ctrl+Down"/>
+			<DiffPrevAction Value="Ctrl+Up"/>
+			<MirrorLeftAction Value="Shift+Ctrl+Left"/>
+			<MirrorRightAction Value="Shift+Ctrl+Right"/>
+		</Items>
+	</TDirCompareCommands>
+	<TDirMergeCommands>
+		<Items>
+			<CopyLeftAction Value="Ctrl+Left"/>
+			<CopyRightAction Value="Ctrl+Right"/>
+			<DiffNextAction Value="Ctrl+Down"/>
+			<DiffPrevAction Value="Ctrl+Up"/>
+		</Items>
+	</TDirMergeCommands>
+	<TTextCompareCommands>
+		<Items>
+			<DiffNextAction Value="Shift+Ctrl+Down"/>
+			<DiffPrevAction Value="Shift+Ctrl+Up"/>
+			<DiffSectionNextAction Value="Ctrl+Down"/>
+			<DiffSectionPrevAction Value="Ctrl+Up"/>
+			<CopyItemLeftAction Value="Shift+Ctrl+Left"/>
+			<CopyItemRightAction Value="Shift+Ctrl+Right"/>
+			<CopyLeftAction Value="Ctrl+Left"/>
+			<CopyRightAction Value="Ctrl+Right"/>
+			<TakeFileLeftAction Value="None"/>
+		</Items>
+	</TTextCompareCommands>
+	<TTextMergeCommands>
+		<Items>
+			<DiffNextAction Value="Shift+Ctrl+Down"/>
+			<DiffPrevAction Value="Shift+Ctrl+Up"/>
+			<DiffSectionNextAction Value="Ctrl+Down"/>
+			<DiffSectionPrevAction Value="Ctrl+Up"/>
+		</Items>
+	</TTextMergeCommands>
+</BCCommands>
