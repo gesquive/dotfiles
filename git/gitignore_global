@@ -25,6 +25,13 @@
 # test_input/
 # __pycache__/
 
+# Generic Files
+*~
+.DS_Store
+
+# Sublime Text Project Files
+*.sublime-project
+*.sublime-workspace
 
 # IntelliJ Editor Project Files
 *.iml
@@ -38,3 +45,4 @@
 
 # Vagrant Files
 .vagrant
+
