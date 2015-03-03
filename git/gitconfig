@@ -1,15 +1,23 @@
 [credential]
 	helper = cache --timeout=86400
 [alias]
+	# List out of all of the active aliases
 	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
+	# An abbreviated listing of commits
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	# An abbreviated listing of commits focusing on commit date/time
 	hist = log --color --graph --abbrev-commit --date=short --pretty=format:'%Cred%h%Creset %Cgreen%ad%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset %C(green)(%cr)%Creset'
-	rm-del = rm $(git ls-files --deleted)
-	rm-del2 = !git ls-files -z --deleted | xargs -0 git rm
+	# Stage deleted files
+	stage-del = rm $(git ls-files --deleted -z)
+	# List out the branches that need to be pushed
 	to-push = log --branches --not --remotes --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	# Undo the last commit
 	undo = reset --hard HEAD~1
+	# Unadd a staged file
 	unadd = reset HEAD --
+	# List out all of the branches and their last update
 	branches = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %09%(authorname) %09%(refname:short)'
+	# Use the difftool to diff an entire directory
 	ddt = difftool --dir-diff --no-symlinks
 
 [core]
