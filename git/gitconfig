@@ -1,7 +1,3 @@
-
-[user]
-	name = <fill_in>
-	email = <fill_in>
 [credential]
 	helper = cache --timeout=86400
 [alias]
@@ -17,7 +13,7 @@
 	ddt = difftool --dir-diff --no-symlinks
 
 [core]
-	excludesfile = /home/gesquivel/git_repos/global_gitignore
+	excludesfile = ~/.gitignore_global
 [push]
 	default = simple
 [diff]
@@ -32,3 +28,5 @@
 [mergetool]
 	bc3 = trustExitCode
 
+[include]
+	path = .gitconfig_local

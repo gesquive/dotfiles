@@ -1,33 +1,7 @@
-# # Files
-# *.user
-# *.suo
-# *.pyc
-# *.asc
-# *.md5
-# *.sha1
-# SysLoggerUpdater/deploy/*.txt
-# SysLoggerUpdater/deploy/*.log
-# *.tst.ps1
-# *.ipr
-# *.iws
-# *.db
-
-# #Dirs
-# _ReSharper.*
-# bin/
-# obj/
-# deploy/Output/*
-# out/
-# output/
-# logs/
-# tmp/
-# db_repository/
-# test_input/
-# __pycache__/
-
 # Generic Files
-*~
 .DS_Store
+*~
+*.swp
 
 # Sublime Text Project Files
 *.sublime-project
