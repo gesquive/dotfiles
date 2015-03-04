@@ -9,7 +9,7 @@
 	hist = log --color --graph --abbrev-commit --date=short --pretty=format:'%Cred%h%Creset %Cgreen%ad%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset %C(green)(%cr)%Creset'
 	# Stage deleted files
 	stage-del = rm $(git ls-files --deleted -z)
-	# List out the branches that need to be pushed
+	# List out the commits that will be pushed
 	to-push = log --branches --not --remotes --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	# Undo the last commit
 	undo = reset --hard HEAD~1
@@ -35,10 +35,10 @@
 
 [difftool "bcompare"]
 	trustExitCode = true
-	cmd = bcompare "$LOCAL" "$REMOTE"
+	cmd = bcomp "$LOCAL" "$REMOTE"
 [mergetool "bcompare"]
 	trustExitCode = true
-	cmd = bcompare "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+	cmd = bcomp "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
