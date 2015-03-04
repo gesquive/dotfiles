@@ -25,16 +25,27 @@
 [push]
 	default = simple
 [diff]
-	tool = bc3
-[difftool "bcompare"]
-	cmd = bcompare $LOCAL $REMOTE
+	tool = bcompare
 [difftool]
-	prompt = false
-	bc3 = trustExitCode
+	prompt = true
 [merge]
-	tool = bc3
+	tool = bcompare
 [mergetool]
-	bc3 = trustExitCode
+	prompt = true
+
+[difftool "bcompare"]
+	trustExitCode = true
+	cmd = bcompare "$LOCAL" "$REMOTE"
+[mergetool "bcompare"]
+	trustExitCode = true
+	cmd = bcompare "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 
 [include]
 	path = .gitconfig_local
