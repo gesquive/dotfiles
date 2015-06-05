@@ -47,5 +47,9 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 
+[user]
+	profiles = ~/.config/git_profiles
+
 [include]
-	path = .gitconfig_local
+        path = .gitconfig_local
+
