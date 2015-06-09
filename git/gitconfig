@@ -35,10 +35,10 @@
 
 [difftool "bcompare"]
 	trustExitCode = true
-	cmd = bcomp "$LOCAL" "$REMOTE"
+	cmd = bcompare "$LOCAL" "$REMOTE"
 [mergetool "bcompare"]
 	trustExitCode = true
-	cmd = bcomp "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+	cmd = bcompare "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
