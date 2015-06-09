@@ -51,5 +51,7 @@
 	profiles = ~/.config/git_profiles
 
 [include]
-        path = .gitconfig_local
+	path = .gitconfig_local
 
+[user]
+	profiles = /home/guse/.git_profiles
