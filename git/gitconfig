@@ -52,6 +52,3 @@
 
 [include]
 	path = .gitconfig_local
-
-[user]
-	profiles = /home/guse/.git_profiles
