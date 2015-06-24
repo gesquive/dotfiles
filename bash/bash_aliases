@@ -5,7 +5,9 @@ export EDITOR vim
 
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
-    eval "`dircolors -b`"
+    if [ -x "$(command -v dircolors)" ]; then
+        eval "`dircolors -b`"
+    fi
     alias ls='ls --color=auto -h'
     alias dir='ls --color=auto --format=vertical'
     alias vdir='ls --color=auto --format=long'
@@ -23,7 +25,7 @@ alias lla='ls -lA'
 alias ld='ls -al -d * | egrep "^d"' # only subdirectories
 alias lt='ls -alt | head -20' # recently changed files
 
-# directory tree - http://www.shell-fu.org/lister.php?id=209  
+# directory tree - http://www.shell-fu.org/lister.php?id=209
 alias tdir='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"'
 
 # display file sizes
@@ -91,8 +93,8 @@ mkcd() {
     mkdir -p "$dir" && cd "$dir";
 }
 
-# convert permissions to octal - http://www.shell-fu.org/lister.php?id=205  
-alias lo='ls -l | sed -e 's/--x/1/g' -e 's/-w-/2/g' -e 's/-wx/3/g' -e 's/r--/4/g' -e 's/r-x/5/g' -e 's/rw-/6/g' -e 's/rwx/7/g' -e 's/---/0/g'' 
+# convert permissions to octal - http://www.shell-fu.org/lister.php?id=205
+alias lo='ls -l | sed -e 's/--x/1/g' -e 's/-w-/2/g' -e 's/-wx/3/g' -e 's/r--/4/g' -e 's/r-x/5/g' -e 's/rw-/6/g' -e 's/rwx/7/g' -e 's/---/0/g''
 
 function cdl { cd $1; ls; }
 
@@ -107,24 +109,24 @@ extract () {
     for x in "$@"; do
         if [ -f $x ] ; then
             case "$x" in
-                *.tar.bz2)  ee "tar xvjf" "$x"      ;;  
-                *.tar.gz)   ee "tar xvzf" "$x"      ;;  
-                *.bz2)      ee "bunzip2" "$x"       ;;  
-                *.rar)      ee "unrar x" "$x"       ;;  
-                *.gz)       ee "gunzip" "$x"        ;;  
-                *.tar)      ee "tar xvf" "$x"       ;;  
-                *.tbz2)     ee "tar xvjf" "$x"      ;;  
-                *.tgz)      ee "tar xvzf" "$x"      ;;  
-                *.zip)      ee "unzip" "$x"         ;;  
-                *.Z)        ee "uncompress" "$x"    ;;  
-                *.7z)       ee "7z x" "$x"          ;;  
-                *)          echo "'$x' cannot be extracted via >extract<" ;;  
+                *.tar.bz2)  ee "tar xvjf" "$x"      ;;
+                *.tar.gz)   ee "tar xvzf" "$x"      ;;
+                *.bz2)      ee "bunzip2" "$x"       ;;
+                *.rar)      ee "unrar x" "$x"       ;;
+                *.gz)       ee "gunzip" "$x"        ;;
+                *.tar)      ee "tar xvf" "$x"       ;;
+                *.tbz2)     ee "tar xvjf" "$x"      ;;
+                *.tgz)      ee "tar xvzf" "$x"      ;;
+                *.zip)      ee "unzip" "$x"         ;;
+                *.Z)        ee "uncompress" "$x"    ;;
+                *.7z)       ee "7z x" "$x"          ;;
+                *)          echo "'$x' cannot be extracted via >extract<" ;;
             esac
         fi
     done
-}  
+}
 
-function swap()         
+function swap()
 {
     local TMPFILE=tmp.$$
     mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
