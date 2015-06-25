@@ -4,10 +4,8 @@
 export EDITOR vim
 
 # enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ]; then
-    if [ -x "$(command -v dircolors)" ]; then
-        eval "`dircolors -b`"
-    fi
+if [ "$TERM" != "dumb" ] && [ -x "$(command -v dircolors)" ]; then
+    eval "`dircolors -b`"
     alias ls='ls --color=auto -h'
     alias dir='ls --color=auto --format=vertical'
     alias vdir='ls --color=auto --format=long'
