@@ -46,6 +46,9 @@ alias top_commands="history | awk '{print $2}' | sort | uniq -c | sort -rn | hea
 alias hide_me='history -d $((HISTCMD-1))'
 alias hide_prev='history -d $((HISTCMD-2)) && history -d $((HISTCMD-1))'
 
+# Apps
+alias todo='topydo'
+
 # bash config edits
 alias edit_aliases='vim ~/.bash_aliases && . ~/.bash_aliases'
 
