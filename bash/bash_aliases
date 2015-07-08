@@ -48,6 +48,7 @@ alias hide_prev='history -d $((HISTCMD-2)) && history -d $((HISTCMD-1))'
 
 # Apps
 alias todo='topydo'
+alias gst='git status'
 
 # bash config edits
 alias edit_aliases='vim ~/.bash_aliases && . ~/.bash_aliases'
