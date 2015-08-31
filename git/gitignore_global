@@ -9,13 +9,7 @@
 
 # IntelliJ Editor Project Files
 *.iml
-.idea/*
-.idea/copyright/*
-.idea/tasks.xml
-.idea/workspace.xml
-.idea/uiDesigner.xml
-.idea/description.html
-.idea/codeStyleSettings.xml
+.idea/
 
 # Vagrant Files
 .vagrant
