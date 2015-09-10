@@ -52,6 +52,7 @@ alias gst='git status'
 
 # bash config edits
 alias edit_aliases='vim ~/.bash_aliases && . ~/.bash_aliases'
+alias update_dotfiles='git -C ~/.dotfiles pull --rebase && ~/.dotfiles/install'
 
 ################################### shell-fu ###################################
 # bash function to decompress archives - http://www.shell-fu.org/lister.php?id=375
