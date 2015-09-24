@@ -49,7 +49,16 @@ ZSH_THEME="bitzero"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(atom colored-man colorize git pip python sublime vagrant virtualenv virtualenvwrapper zsh-syntax-highlighting)
+plugins=(atom bower colored-man colorize git go node npm pip python rvm sublime vagrant virtualenv virtualenvwrapper zsh-syntax-highlighting)
+
+if [[ $CURRENT_OS == 'OS X' ]]; then
+	plugins+=(brew brew-cask osx)
+elif [[ $CURRENT_OS == 'Linux' ]]; then
+	plugins+=(command-not-found debian systemd)
+elif [[ $CURRENT_OS == 'Cygwin' ]]; then
+	plugins+=(cygwin)
+fi
+
 
 # User configuration
 
