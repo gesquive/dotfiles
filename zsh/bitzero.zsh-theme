@@ -3,7 +3,7 @@
 # https://github.com/andyfleming/oh-my-zsh/blob/master/themes/af-magic.zsh-theme
 
 # color vars
-eval sys_color='$FG[237]'
+eval sys_color='$FG[240]'
 eval dirty_color='$FG[214]'
 eval virt_color='$FG[023]'
 eval git_color='$FG[064]'
