@@ -65,17 +65,8 @@ fi
 export PATH="/home/gesquivel/.gvm/pkgsets/system/global/bin:/usr/bin:/bin:/home/gesquivel/.gvm/bin:/home/gesquivel/.rvm/gems/ruby-2.2.1/bin:/home/gesquivel/.rvm/gems/ruby-2.2.1@global/bin:/home/gesquivel/.rvm/rubies/ruby-2.2.1/bin:/home/gesquivel/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin:/home/gesquivel/.rvm/bin:/home/gesquivel/.rvm/bin:/usr/share/go/bin:/home/gesquivel/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
 export TERM=xterm-256color
 export EDITOR vim
@@ -86,11 +77,11 @@ export EDITOR vim
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
+if [ -f ~/.zsh_local ]; then
+    source ~/.zsh_local
+fi
+
+source $ZSH/oh-my-zsh.sh
