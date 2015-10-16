@@ -62,8 +62,10 @@ fi
 
 # User configuration
 
-export PATH="/home/gesquivel/.gvm/pkgsets/system/global/bin:/usr/bin:/bin:/home/gesquivel/.gvm/bin:/home/gesquivel/.rvm/gems/ruby-2.2.1/bin:/home/gesquivel/.rvm/gems/ruby-2.2.1@global/bin:/home/gesquivel/.rvm/rubies/ruby-2.2.1/bin:/home/gesquivel/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin:/home/gesquivel/.rvm/bin:/home/gesquivel/.rvm/bin:/usr/share/go/bin:/home/gesquivel/.rvm/bin"
+export PATH="/home/gesquivel/.gvm/pkgsets/system/global/bin:/usr/bin:/bin:/home/gesquivel/.gvm/bin:/home/gesquivel/.rvm/gems/ruby-2.2.1/bin:/home/gesquivel/.rvm/gems/ruby-2.2.1@global/bin:/home/gesquivel/.rvm/rubies/ruby-2.2.1/bin:/home/gesquivel/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin:/home/gesquivel/.rvm/bin:/home/gesquivel/.rvm/bin:/usr/share/go/bin:/home/gesquivel/.rvm/bin:/home/gesquivel/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
+
+[[ -s "/home/gesquivel/.gvm/scripts/gvm" ]] && source "/home/gesquivel/.gvm/scripts/gvm"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
