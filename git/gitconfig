@@ -19,6 +19,8 @@
 	branches = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %09%(authorname) %09%(refname:short)'
 	# Use the difftool to diff an entire directory
 	ddt = difftool --dir-diff --no-symlinks
+	# shorten checkout 
+	co = checkout
 
 [core]
 	excludesfile = ~/.gitignore_global
