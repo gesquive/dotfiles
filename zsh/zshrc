@@ -49,7 +49,7 @@ ZSH_THEME="bitzero"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(atom bower colored-man colorize git go node pip python rvm sublime vagrant virtualenv virtualenvwrapper zsh-syntax-highlighting)
+plugins=(atom bower colored-man colorize git go node nvm pip python rvm sublime vagrant virtualenv virtualenvwrapper zsh-syntax-highlighting)
 
 if [[ $CURRENT_OS == 'OS X' ]]; then
 	plugins+=(brew brew-cask osx)
@@ -62,10 +62,11 @@ fi
 
 # User configuration
 
-export PATH="/home/gesquivel/.gvm/pkgsets/system/global/bin:/usr/bin:/bin:/home/gesquivel/.gvm/bin:/home/gesquivel/.rvm/gems/ruby-2.2.1/bin:/home/gesquivel/.rvm/gems/ruby-2.2.1@global/bin:/home/gesquivel/.rvm/rubies/ruby-2.2.1/bin:/home/gesquivel/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin:/home/gesquivel/.rvm/bin:/home/gesquivel/.rvm/bin:/usr/share/go/bin:/home/gesquivel/.rvm/bin:/home/gesquivel/bin"
+export PATH="$HOME/.gvm/pkgsets/system/global/bin:/usr/bin:/bin:$HOME/.gvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin:$HOME/.rvm/bin:$HOME/.rvm/bin:/usr/share/go/bin:$HOME/.rvm/bin:$HOME/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-[[ -s "/home/gesquivel/.gvm/scripts/gvm" ]] && source "/home/gesquivel/.gvm/scripts/gvm"
+# Setup GVM - Golang
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
