@@ -84,6 +84,9 @@ function swap()
     mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
 }
 
+if [ -f ~/.dotfiles/check_for_upgrade.sh ]; then
+    ~/.dotfiles/check_for_upgrade.sh
+fi
 
 if [ -f ~/.bash_local ]; then
     . ~/.bash_local
