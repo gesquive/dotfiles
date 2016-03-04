@@ -28,7 +28,7 @@ else
   NORMAL=""
 fi
 
-which git >& /dev/null
+which git >/dev/null
 
 if [ $? -eq 1 ]; then
 	printf "${RED}%s${NORMAL}\n" "Git not found! Make sure it is installed."
@@ -39,7 +39,7 @@ if [ -d "${DOTFILES_DIR}" ]; then
     printf "${DARKCYAN}%s${NORMAL}\n" "Dotfiles already installed. Updating."
 
 	cd ${DOTFILES_DIR}
-	if [[ -n "$(git status --porcelain)" ]]; then
+	if [ -n "$(git status --porcelain)" ]; then
 		git stash
 	fi
 	if git pull --rebase
