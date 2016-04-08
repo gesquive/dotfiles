@@ -55,34 +55,6 @@ alias gst='git status'
 alias edit_aliases='vim ~/.bash_aliases && . ~/.bash_aliases'
 alias update_dotfiles='~/.dotfiles/bootstrap_dotfiles.sh'
 
-################################### shell-fu ###################################
-# bash function to decompress archives - http://www.shell-fu.org/lister.php?id=375
-extract () {
-    for x in "$@"; do
-        if [ -f $x ] ; then
-            case "$x" in
-                *.tar.bz2)  ee "tar xvjf" "$x"      ;;
-                *.tar.gz)   ee "tar xvzf" "$x"      ;;
-                *.bz2)      ee "bunzip2" "$x"       ;;
-                *.rar)      ee "unrar x" "$x"       ;;
-                *.gz)       ee "gunzip" "$x"        ;;
-                *.tar)      ee "tar xvf" "$x"       ;;
-                *.tbz2)     ee "tar xvjf" "$x"      ;;
-                *.tgz)      ee "tar xvzf" "$x"      ;;
-                *.zip)      ee "unzip" "$x"         ;;
-                *.Z)        ee "uncompress" "$x"    ;;
-                *.7z)       ee "7z x" "$x"          ;;
-                *)          echo "'$x' cannot be extracted via >extract<" ;;
-            esac
-        fi
-    done
-}
-
-function swap()
-{
-    local TMPFILE=tmp.$$
-    mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
-}
 
 if [ -f ~/.dotfiles/check_for_upgrade.sh ]; then
     ~/.dotfiles/check_for_upgrade.sh
