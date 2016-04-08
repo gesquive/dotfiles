@@ -1,5 +1,8 @@
 - clean: ['~']
 - link:
+    ~/.ackrc:
+        path: ack/ackrc
+        force: true
     ~/.tmux.conf:
         path: tmux/tmux.conf
         force: true
