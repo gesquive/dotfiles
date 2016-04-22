@@ -33,7 +33,6 @@ alias df="df -h"
 
 # common aliases
 alias cd..='cd ..'
-alias mkcd='_(){ mkdir $1 && cd $1; }; _'
 alias cls='clear'
 alias del='rm -R'
 alias reboot='sudo shutdown --reboot now'
@@ -55,6 +54,15 @@ alias gst='git status'
 alias edit_aliases='vim ~/.bash_aliases && . ~/.bash_aliases'
 alias update_dotfiles='~/.dotfiles/bootstrap_dotfiles.sh'
 
+
+mkcd() {
+    mkdir "$@" && cd "$@";
+}
+
+# Source: http://askubuntu.com/a/152005/17577
+lso() {
+    ls -alG "$@" | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(" %0o ",k);print}';
+}
 
 if [ -f ~/.dotfiles/check_for_upgrade.sh ]; then
     ~/.dotfiles/check_for_upgrade.sh
