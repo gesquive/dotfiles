@@ -40,8 +40,7 @@ if [ -f ~/.dotfiles-update ]; then
       _upgrade_dotfiles
     else
       echo -n "[dotfiles] Would you like to check for updates? [Y/n]: "
-      read -n 1 ans
-      echo ""
+      read ans
       if [[ "$ans" == Y* ]] || [[ "$ans" == y* ]] || [ -z "$ans" ]; then
         _upgrade_dotfiles
       else
