@@ -61,15 +61,15 @@ fi
 
 
 # User configuration
-
-export PATH="$HOME/.gvm/pkgsets/system/global/bin:/usr/bin:/bin:$HOME/.gvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin:$HOME/.rvm/bin:$HOME/.rvm/bin:/usr/share/go/bin:$HOME/.rvm/bin:$HOME/bin"
+export GOROOT="/usr/local/go"
+export PATH="$GOROOT/bin:/usr/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin:$HOME/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Setup GVM - Golang
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 export TERM=xterm-256color
 export EDITOR vim
