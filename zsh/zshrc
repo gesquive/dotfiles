@@ -59,9 +59,6 @@ elif [[ $CURRENT_OS == 'Cygwin' ]]; then
 	plugins+=(cygwin)
 fi
 
-export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-hist-$(HOSTNAME)-$(date "+%Y-%m-%d").log; fi'
-precmd() { eval "$PROMPT_COMMAND" }
-
 # User configuration
 export GOROOT="/usr/local/go"
 export PATH="$GOROOT/bin:/usr/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin:$HOME/bin"
@@ -81,6 +78,18 @@ export EDITOR vim
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Save the command for logging purposes
+save_prompt() {
+	[[ -d ~/.logs ]] || mkdir ~/.logs
+	if [ "$(id -u)" -ne 0 ]; then
+		LAST_CMD=$(history $((HISTCMD-1)) | tail -n1 | cut -d ' ' -f 3-)
+		echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) ${LAST_CMD}" >> ~/.logs/shell-history-$(date "+%Y-%m-%d").log;
+	fi
+}
+
+# export PROMPT_COMMAND=save_prompt
+precmd() { save_prompt; }
 
 if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
