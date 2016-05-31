@@ -1,28 +1,27 @@
+- defaults:
+    link:
+      force: true
+
 - clean: ['~']
 - link:
     ~/.ackrc:
         path: ack/ackrc
-        force: true
     ~/.tmux.conf:
         path: tmux/tmux.conf
-        force: true
     ~/.gitconfig:
         path: git/gitconfig
-        force: true
     ~/.gitignore_global:
         path: git/gitignore_global
-        force: true
     ~/.vimrc:
         path: vim/vimrc
-        force: true
     ~/.bash_aliases:
         path: bash/bash_aliases
-        force: true
     ~/.zshrc:
         path: zsh/zshrc
-        force: true
     ~/.oh-my-zsh/themes/bitzero.zsh-theme:
         path: zsh/bitzero.zsh-theme
         create: true
-        force: true
-- shell: []
+- shell:
+  -
+    command: mkdir -p ~/.logs
+    description: Create shell logging directory
