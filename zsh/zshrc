@@ -60,12 +60,22 @@ elif [[ $CURRENT_OS == 'Cygwin' ]]; then
 fi
 
 # User configuration
-export GOROOT="/usr/local/go"
-export PATH="$GOROOT/bin:/usr/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin:$HOME/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# Setup GVM - Golang
+# Setup Golang
+export GOROOT="/usr/local/go"
+export GOPATH="/usr/local/gotools"
+# [[ -d $GOPATH ]] || mkdir -p $GOPATH
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
+
+# Setup GVM
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+# Setup Java
+if [[ -d /usr/lib/jvm/java-7-oracle/ ]]; then
+	export PATH="$PATH:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin"
+fi
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
