@@ -28,7 +28,9 @@
 	stage-del = rm $(git ls-files --deleted -z)
 	# Undo the last commit
 	undo = reset --hard HEAD~1
-	# Use the difftool to diff an entire directory
+	# Ammend an older commit
+    fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
+    # Use the difftool to diff an entire directory
 	ddt = difftool --dir-diff --no-symlinks
 	# shorten checkout
 	co = checkout
