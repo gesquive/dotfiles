@@ -35,6 +35,13 @@ if [ $? -eq 1 ]; then
 	exit 1;
 fi
 
+if [ -d "${HOME}/.oh-my-zsh" ]; then
+    printf "${BLUE}%s${NORMAL}\n" "oh-my-zsh install found."
+else
+    printf "${YELLOW}%s${NORMAL}\n" "oh-my-zsh is not installed, attempting to install."
+    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+fi
+
 if [ -d "${DOTFILES_DIR}" ]; then
     printf "${DARKCYAN}%s${NORMAL}\n" "Dotfiles already installed. Updating."
 
