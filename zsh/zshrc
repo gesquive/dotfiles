@@ -63,6 +63,11 @@ fi
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
+# Setup virtualenvwrapper
+if [ -x "$(command -v virtualenvwrapper.sh)" -o -f "/etc/bash_completion.d/virtualenvwrapper" ]; then
+	plugins+=(virtualenvwrapper)
+fi
+
 # Setup Golang
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME/gowork"
