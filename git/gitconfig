@@ -35,6 +35,9 @@
 	# shorten checkout
 	co = checkout
 
+	# yolo
+	yolo = '!git commit -m "$(curl -s whatthecommit.com/index.txt)"'
+
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
