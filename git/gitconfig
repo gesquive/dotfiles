@@ -44,13 +44,21 @@
 [push]
 	default = simple
 [diff]
-	tool = bcompare
+	tool = vimdiff
 [difftool]
 	prompt = true
 [merge]
-	tool = bcompare
+	tool = vimdiff
 [mergetool]
 	prompt = true
+
+[difftool "vimdiff"]
+	trustExitCode = true
+	cmd = vimdiff "$LOCAL" "$REMOTE"
+
+[mergetool "vimdiff"]
+	trustExitCode = true
+	cmd = vimdiff "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 
 [difftool "bcompare"]
 	trustExitCode = true
