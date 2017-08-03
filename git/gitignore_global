@@ -11,8 +11,11 @@
 *.iml
 .idea/
 
+# VSCode Editor Project Files
+.vscode/
+
 # Vagrant Files
-.vagrant
+.vagrant/
 
 # Gnome file manager
 .cache
