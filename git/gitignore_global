@@ -17,6 +17,9 @@
 # Vagrant Files
 .vagrant/
 
+# Tresorit Files
+.tresorit/
+
 # Gnome file manager
 .cache
 .thumbs
