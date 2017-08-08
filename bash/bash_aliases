@@ -39,6 +39,7 @@ alias del='rm -R'
 alias reboot='sudo shutdown --reboot now'
 alias g='gnome-open'
 alias web_own='sudo chown www-data:www-data'
+alias rudo='SSH_AUTH_SOCK=$SSH_AUTH_SOCK'
 
 alias list_zombies='ps -el | grep 'Z''
 
