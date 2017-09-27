@@ -61,16 +61,14 @@ alias edit_aliases='vim ~/.bash_aliases && . ~/.bash_aliases'
 alias update_dotfiles='~/.dotfiles/bootstrap_dotfiles.sh'
 
 
-mkcd() {
-    mkdir "$@" && cd "$@";
-}
+mkcd() {  mkdir "$@" && cd "$@";}
+
+cgrep() { grep --color=always "$@" . | less -R; }
 
 # Source: http://askubuntu.com/a/152005/17577
 lso() {
     ls -alG "$@" | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(" %0o ",k);print}';
 }
-
-cgrep() { grep --color=always "$@" . | less -R }
 
 if [ -f ~/.dotfiles/check_for_upgrade.sh ]; then
     ~/.dotfiles/check_for_upgrade.sh
