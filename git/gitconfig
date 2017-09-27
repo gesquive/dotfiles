@@ -3,6 +3,8 @@
 [alias]
 	# List out of all of the active aliases
 	aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
+	# Ignore multiple repeated git commands
+	git = !exec git
 	# An abbreviated listing of commits
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	# An abbreviated listing of commits focusing on commit date/time
