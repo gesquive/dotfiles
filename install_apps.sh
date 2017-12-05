@@ -29,7 +29,7 @@ version_found() {
 
     echo "Checking $APP $VERSION"
 
-    if [[ "$(${APP} --version)" == *${VERSION} ]]; then
+    if [[ "$(${APP} --version)" == *${VERSION}* ]]; then
         return 0
     fi
     return 1
@@ -91,7 +91,7 @@ install_email() {
 install_app "${TGT}" "${VER}" install_email
 
 # git-user - https://github.com/gesquive/git-user
-VER=v2.0.4
+VER=v2.0.5
 TGT=/usr/local/bin/git-user
 install_gituser() {
     if [ ${OS} == darwin ]; then
@@ -116,17 +116,17 @@ install_serve() {
 install_app "${TGT}" "${VER}" install_serve
 
 # forge - https://github.com/gesquive/forge
-VER=v0.1.1
+VER=v0.1.2
 TGT=/usr/local/bin/forge
 install_forge() {
     wget -c https://github.com/gesquive/forge/releases/download/${VER}/forge-${VER}-${OS}-${ARCH}.tar.gz \
         && tar -xvzf forge-${VER}-${OS}-${ARCH}.tar.gz \
-        && install -m 755 ${OS}-${ARCH}/forge ${TGT}
+        && install -m 755 forge ${TGT}
 }
 install_app "${TGT}" "${VER}" install_forge
 
 # ripgrep - https://github.com/BurntSushi/ripgrep
-VER=0.2.9
+VER=0.7.1
 TGT=/usr/local/bin/rg
 install_ripgrep() {
     wget -c https://github.com/BurntSushi/ripgrep/releases/download/${VER}/ripgrep-${VER}-${ARCH3}-${OS3}.tar.gz \
