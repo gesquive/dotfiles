@@ -49,7 +49,7 @@ ZSH_THEME="bitzero"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(atom bower colored-man colorize git go node nvm pip python rvm sublime vagrant virtualenv zsh-syntax-highlighting)
+plugins=(atom bower colored-man colorize git go node nvm pip python rvm ssh-agent sublime vagrant virtualenv zsh-syntax-highlighting)
 
 if [[ $CURRENT_OS == 'OS X' ]]; then
 	plugins+=(brew brew-cask osx)
