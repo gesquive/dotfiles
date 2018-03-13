@@ -82,6 +82,10 @@ if [[ -d /usr/lib/jvm/java-7-oracle/ ]]; then
 	export PATH="$PATH:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin"
 fi
 
+# Setup pipsi
+export PIPSI_HOME=$HOME/virtualenvs
+export PIPSI_BIN_DIR=$HOME/bin
+
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
