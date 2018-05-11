@@ -110,7 +110,7 @@ save_prompt() {
 }
 
 # export PROMPT_COMMAND=save_prompt
-precmd() { save_prompt; }
+# precmd() { save_prompt; }
 
 if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
