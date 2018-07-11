@@ -13,6 +13,7 @@
 
 # VSCode Editor Project Files
 .vscode/
+.vs/
 
 # Vagrant Files
 .vagrant/
