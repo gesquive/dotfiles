@@ -60,7 +60,7 @@ elif [[ $CURRENT_OS == 'Cygwin' ]]; then
 fi
 
 # User configuration
-export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Setup virtualenvwrapper
@@ -82,9 +82,17 @@ if [[ -d /usr/lib/jvm/java-7-oracle/ ]]; then
 	export PATH="$PATH:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin"
 fi
 
+# Setup python virtualenvs/pipenv
+export WORKON_HOME=$HOME/.local/venvs
+export PROJECT_HOME=$HOME/gitroot
+
+# Setup pyenv
+export PYENV_ROOT=$HOME/.local/share/pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+
 # Setup pipsi
-export PIPSI_HOME=$HOME/virtualenvs
-export PIPSI_BIN_DIR=$HOME/bin
+export PIPSI_HOME=$HOME/.local/venvs
+export PIPSI_BIN_DIR=$HOME/.local/bin
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
