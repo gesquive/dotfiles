@@ -83,7 +83,7 @@ if [[ -d /usr/lib/jvm/java-7-oracle/ ]]; then
 fi
 
 # Setup python virtualenvs/pipenv
-export WORKON_HOME=$HOME/.local/venvs
+export WORKON_HOME=$HOME/.local/share/virtualenvs
 export PROJECT_HOME=$HOME/gitroot
 
 # Setup pyenv
@@ -91,7 +91,7 @@ export PYENV_ROOT=$HOME/.local/share/pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 
 # Setup pipsi
-export PIPSI_HOME=$HOME/.local/venvs
+export PIPSI_HOME=$HOME/.local/share/virtualenvs
 export PIPSI_BIN_DIR=$HOME/.local/bin
 
 # You may need to manually set your language environment
