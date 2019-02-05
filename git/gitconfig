@@ -48,10 +48,12 @@
 	followTags = true
 [diff]
 	tool = vimdiff
+	guitool = bcompare
 [difftool]
-	prompt = true
+	prompt = false
 [merge]
 	tool = vimdiff
+	guitool = bcompare
 [mergetool]
 	prompt = true
 
