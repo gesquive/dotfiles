@@ -19,7 +19,7 @@
         path: bash/bash_aliases
     ~/.zshrc:
         path: zsh/zshrc
-    ~/.oh-my-zsh/themes/bitzero.zsh-theme:
+    ~/.oh-my-zsh/custom/themes/bitzero.zsh-theme:
         path: zsh/bitzero.zsh-theme
         create: true
 - shell:
