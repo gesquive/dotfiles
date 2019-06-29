@@ -154,3 +154,6 @@ install_app "${TGT}" "${VER}" install_lf
 # progress - https://github.com/Xfennec/progress
 # git-substatus - https://github.com/gesquive/git-substatus
 # upto - https://github.com/driv/upto
+# lsd - https://github.com/Peltoche/lsd
+# uxy - https://github.com/sustrik/uxy
+# z - https://github.com/rupa/z
