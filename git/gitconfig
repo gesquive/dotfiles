@@ -2,7 +2,7 @@
 	helper = cache --timeout=86400
 [alias]
 	# List out of all of the active aliases
-	aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
+	aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\=> \\2/' | sort
 	# Ignore multiple repeated git commands
 	git = !exec git
 	# An abbreviated listing of commits
