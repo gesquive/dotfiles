@@ -147,6 +147,7 @@ install_lf() {
 install_app "${TGT}" "${VER}" install_lf
 
 # Future possible installs!
+# tldr - https://github.com/isacikgoz/tldr
 # ngrok - https://github.com/inconshreveable/ngrok
 # fwd - https://github.com/kintoandar/fwd
 # teleconsole - https://github.com/gravitational/teleconsole
