@@ -6,13 +6,13 @@
 	# Ignore multiple repeated git commands
 	git = !exec git
 	# An abbreviated listing of commits
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lg = log --color --graph --abbrev-commit --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%ar) %C(bold blue)<%an>%Creset%C(cyan)% GK%Creset'
 	# An abbreviated listing of commits focusing on commit date/time
-	history = log --color --graph --abbrev-commit --date=short --pretty=format:'%Cred%h%Creset %Cgreen%ad%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset %C(green)(%cr)%Creset'
+	history = log --color --graph --abbrev-commit --date=short --pretty=format:'%C(red)%h%Creset %C(green)%ad%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset %C(green)(%cr)%Creset'
 	# List out all of the branches and their last update
 	branches = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 	# List out the commits that will be pushed
-	to-push = log --branches --not --remotes --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	to-push = log --branches --not --remotes --color --graph --abbrev-commit --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset'
 	# List all tags - make cli consistent
 	tags = tag
 	# List current stashes - make cli consistent
