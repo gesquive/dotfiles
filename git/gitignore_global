@@ -14,6 +14,7 @@
 # VSCode Editor Project Files
 .vscode/
 .vs/
+__*
 
 # Vagrant Files
 .vagrant/
