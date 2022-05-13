@@ -1,0 +1,90 @@
+[credential]
+	helper = cache --timeout=86400
+[alias]
+	# List out of all of the active aliases
+	aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\=> \\2/' | sort
+	# Ignore multiple repeated git commands
+	git = !exec git
+	# An abbreviated listing of commits
+	lg = log --color --graph --abbrev-commit --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%ar) %C(bold blue)<%an>%Creset%C(cyan)% GK%Creset'
+	# An abbreviated listing of commits focusing on commit date/time
+	history = log --color --graph --abbrev-commit --date=short --pretty=format:'%C(red)%h%Creset %C(green)%ad%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset %C(green)(%cr)%Creset'
+	# List out all of the branches and their last update
+	branches = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+	# List out the commits that will be pushed
+	to-push = log --branches --not --remotes --color --graph --abbrev-commit --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset'
+	# List all tags - make cli consistent
+	tags = tag
+	# List current stashes - make cli consistent
+	stashes = stash list
+
+	# Remove a staged file(s)
+	unstage = reset -q HEAD --
+	# Revert file(s)
+	discard = checkout --
+	# Revert last commit
+	uncommit = reset --mixed HEAD~
+	# Amend staged files to last commit
+	amend = commit --amend
+	# Stage deleted files
+	stage-del = rm $(git ls-files --deleted -z)
+	# Undo the last commit
+	undo = reset --hard HEAD~1
+	# Ammend an older commit
+    fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
+    # Use the difftool to diff an entire directory
+	ddt = difftool --dir-diff --no-symlinks
+	# shorten checkout
+	co = checkout
+	# list your most recently used branches - https://ses4j.github.io/2020/04/01/git-alias-recent-branches/
+	lb = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf(\"  \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
+
+	# yolo
+	yolo = '!git add -A && git commit -m "$(curl -s whatthecommit.com/index.txt)"'
+
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+[init]
+	defaultBranch = main
+[push]
+	default = simple
+	followTags = true
+[diff]
+	tool = vimdiff
+	guitool = bcompare
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+	guitool = bcompare
+[mergetool]
+	prompt = true
+
+[difftool "vimdiff"]
+	trustExitCode = true
+	cmd = vimdiff "$LOCAL" "$REMOTE"
+
+[mergetool "vimdiff"]
+	trustExitCode = true
+	cmd = vimdiff "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+
+[difftool "bcompare"]
+	trustExitCode = true
+	cmd = bcompare "$LOCAL" "$REMOTE"
+[mergetool "bcompare"]
+	trustExitCode = true
+	cmd = bcompare "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[user]
+	profiles = ~/.config/git_profiles
+
+[include]
+	path = .gitconfig_local

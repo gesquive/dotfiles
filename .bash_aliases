@@ -1,0 +1,90 @@
+# Alias definitions.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+export TERM=xterm-256color
+export EDITOR=vim
+
+
+# enable color support of ls and also add handy aliases
+if [ "$TERM" != "dumb" ] && [ -x "$(command -v dircolors)" ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto -h'
+    alias dir='ls --color=auto --format=vertical'
+    alias vdir='ls --color=auto --format=long'
+    alias l.='ls -dF .[a-zA-Z0-9]* --color=tty'
+    alias ll.='ls -dlF .[a-zA-Z0-9]* --color=tty'
+    alias grep='grep --color=auto'
+    alias less='less --raw-control-chars'
+fi
+
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+alias lla='ls -lA'
+alias ld='ls -al -d * | egrep "^d"' # only subdirectories
+alias lt='ls -alt | head -20' # recently changed files
+
+# directory tree - http://www.shell-fu.org/lister.php?id=209
+alias tdir='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"'
+
+# display file sizes
+alias du="du -h"
+alias df="df -h"
+
+# common aliases
+alias cd..='cd ..'
+alias cls='clear'
+alias del='rm -R'
+alias reboot='sudo shutdown --reboot now'
+alias g='gnome-open'
+alias web_own='sudo chown www-data:www-data'
+alias rudo='SSH_AUTH_SOCK=$SSH_AUTH_SOCK'
+
+alias list_zombies='ps -el | grep 'Z''
+
+# bash history aliases
+alias top_commands="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10"
+alias hide_me='history -d $((HISTCMD-1))'
+alias hide_prev='history -d $((HISTCMD-2)) && history -d $((HISTCMD-1))'
+
+# Random
+alias pathls='echo $PATH | tr ":" "\n"'
+alias whatthecommit="curl -s whatthecommit.com/index.txt"
+
+# Apps
+alias todo='topydo'
+alias gst='git status'
+
+# bash config edits
+alias edit_aliases='vim ~/.bash_aliases && . ~/.bash_aliases'
+alias update_dotfiles='~/.dotfiles/bootstrap_dotfiles.sh'
+
+
+mkcd() {  mkdir "$@" && cd "$@";}
+
+cgrep() { grep --color=always "$@" . | less -R; }
+
+# Source: http://askubuntu.com/a/152005/17577
+lso() {
+    ls -alG "$@" | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(" %0o ",k);print}';
+}
+
+# source: https://gist.github.com/premek/6e70446cfc913d3c929d7cdbfe896fef
+function mv() {
+  if [ "$#" -ne 1 ] || [ ! -e "$1" ]; then
+    command mv "$@"
+    return
+  fi
+
+  read -ei "$1" newfilename
+  command mv -v -- "$1" "$newfilename"
+}
+
+if [ -f ~/.dotfiles/check_for_upgrade.sh ]; then
+    ~/.dotfiles/check_for_upgrade.sh
+fi
+
+if [ -f ~/.bash_local ]; then
+    . ~/.bash_local
+fi

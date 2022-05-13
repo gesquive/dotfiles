@@ -1,0 +1,27 @@
+# Generic Files
+.DS_Store
+*~
+*.swp
+
+# Sublime Text Project Files
+*.sublime-project
+*.sublime-workspace
+
+# IntelliJ Editor Project Files
+*.iml
+.idea/
+
+# VSCode Editor Project Files
+.vscode/
+.vs/
+__*
+
+# Vagrant Files
+.vagrant/
+
+# Tresorit Files
+.tresorit/
+
+# Gnome file manager
+.cache
+.thumbs
