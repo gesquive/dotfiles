@@ -3,6 +3,7 @@
 chmod 700 ${HOME}/.config
 
 # sparse checkout
+rm -rf ${HOME}/README.md ${HOME}/UNLICENSE
 yadm gitconfig core.sparseCheckout true
 yadm sparse-checkout set '/*' '!README.md' '!UNLICENSE'
 
@@ -10,4 +11,3 @@ yadm sparse-checkout set '/*' '!README.md' '!UNLICENSE'
 mkdir -p ${HOME}/.logs
 
 sh -c "$(wget https://starship.rs/install.sh -O -)" install -y --bin-dir ${HOME}/.local/bin/
-
