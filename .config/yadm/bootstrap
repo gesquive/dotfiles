@@ -9,3 +9,5 @@ yadm sparse-checkout set '/*' '!README.md' '!UNLICENSE'
 # create shell logging directory
 mkdir -p ${HOME}/.logs
 
+sh -c "$(wget https://starship.rs/install.sh -O -)" install -y --bin-dir ${HOME}/.local/bin/
+

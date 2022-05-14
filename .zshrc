@@ -132,3 +132,6 @@ if [ -f ~/.zsh_local ]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+
+eval "$(starship init zsh)"
+
