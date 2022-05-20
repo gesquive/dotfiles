@@ -5,7 +5,7 @@ chmod 700 ${HOME}/.config
 # sparse checkout
 rm -rf ${HOME}/README.md ${HOME}/UNLICENSE
 yadm gitconfig core.sparseCheckout true
-yadm sparse-checkout set '/*' '!README.md' '!UNLICENSE'
+yadm sparse-checkout set '/*' '!README.md' '!UNLICENSE' '!Vagrantfile'
 
 # create shell logging directory
 mkdir -p ${HOME}/.logs
