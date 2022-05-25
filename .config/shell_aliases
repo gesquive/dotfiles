@@ -1,19 +1,17 @@
 # Alias definitions.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-export TERM=xterm-256color
-export EDITOR=vim
-
-
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ] && [ -x "$(command -v dircolors)" ]; then
-    eval "`dircolors -b`"
+    test -r ${HOME}/.dircolors && eval "$(dircolors -b ${HOME}/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto -h'
     alias dir='ls --color=auto --format=vertical'
     alias vdir='ls --color=auto --format=long'
     alias l.='ls -dF .[a-zA-Z0-9]* --color=tty'
     alias ll.='ls -dlF .[a-zA-Z0-9]* --color=tty'
     alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
     alias less='less --raw-control-chars'
 fi
 
@@ -57,7 +55,7 @@ alias todo='topydo'
 alias gst='git status'
 
 # bash config edits
-alias edit_aliases='vim ~/.bash_aliases && . ~/.bash_aliases'
+alias edit_aliases='vim ~/.config/shell_aliases && . ~/.config/shell_aliases'
 alias update_dotfiles='~/.dotfiles/bootstrap_dotfiles.sh'
 
 
