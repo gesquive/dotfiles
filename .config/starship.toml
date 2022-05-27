@@ -2,12 +2,12 @@
 add_newline = false
 
 [username]
-style_user = "#666666"
+style_user = "#33FFBD"
 format = "[$user]($style)"
 show_always = false
 
 [hostname]
-style = "#666666"
+style = "#33FFBD"
 format = "[@$hostname]($style) "
 ssh_only = true
 
