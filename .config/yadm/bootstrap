@@ -11,3 +11,5 @@ yadm sparse-checkout set '/*' '!README.md' '!UNLICENSE' '!Vagrantfile'
 mkdir -p ${HOME}/.logs
 
 sh -c "$(wget https://starship.rs/install.sh -O -)" install -y --bin-dir ${HOME}/.local/bin/
+
+wget git.io/antigen -O ${HOME}/.local/share/antigen.zsh
