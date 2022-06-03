@@ -68,64 +68,17 @@ if [ -x "$(command -v virtualenvwrapper.sh)" -o -f "/etc/bash_completion.d/virtu
 	plugins+=(virtualenvwrapper)
 fi
 
-# Setup Golang
-export GOROOT="/usr/local/go"
-export GOPATH="$HOME/gowork"
-# [[ -d $GOPATH ]] || mkdir -p $GOPATH
-export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
-
-# Setup GVM
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
-# Setup Java
-if [[ -d /usr/lib/jvm/java-7-oracle/ ]]; then
-	export PATH="$PATH:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin"
-fi
-
-# Setup python virtualenvs/pipenv
-export WORKON_HOME=$HOME/.local/share/virtualenvs
-export PROJECT_HOME=$HOME/gitroot
-
-# Setup pyenv
-export PYENV_ROOT=$HOME/.local/share/pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-
-# Setup pipsi
-export PIPSI_HOME=$HOME/.local/share/virtualenvs
-export PIPSI_BIN_DIR=$HOME/.local/bin
-
-# Setup pipx
-export PIPX_HOME=$HOME/.local/share/pipx
-export PIPX_BIN_DIR=$HOME/.local/bin
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
-export TERM=xterm-256color
-export EDITOR vim
-
 setopt HIST_IGNORE_SPACE
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Save the command for logging purposes
-save_prompt() {
-	[[ -d ~/.logs ]] || mkdir ~/.logs
-	if [ "$(id -u)" -ne 0 ]; then
-		LAST_CMD=$(history $((HISTCMD-1)) | tail -n1 | cut -d ' ' -f 3-)
-		echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) ${LAST_CMD}" >> ~/.logs/shell-history-$(date "+%Y-%m-%d").log;
-	fi
-}
-
-# export PROMPT_COMMAND=save_prompt
-# precmd() { save_prompt; }
-
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
+# source common definitions
+if [ -f ~/.config/shell_env ]; then
+    . ~/.config/shell_env
+fi
+if [ -f ~/.config/shell_common ]; then
+    source ~/.config/shell_common
+fi
+if [ -f ~/.config/shell_aliases ]; then
+    source ~/.config/shell_aliases
 fi
 if [ -f ~/.zsh_local ]; then
     source ~/.zsh_local
@@ -133,5 +86,6 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-eval "$(starship init zsh)"
-
+if command -v starship >/dev/null; then
+    eval "$(starship init zsh)"
+fi

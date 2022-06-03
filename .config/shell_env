@@ -1,22 +1,51 @@
 # vim: set ft=sh sw=2 et :
 
-##
-## Editors
-##
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
+# Setup editors
 export TERM=xterm-256color
 export EDITOR=vim
 export GIT_EDITOR="$EDITOR"
 export USE_EDITOR="$EDITOR"
 export VISUAL=$EDITOR
-export PAGER=less
 
-##
-## Pager
-##
+# Setup pager
 export PAGER=less
 export LESS='-iFMRSX -x4'
 
+# Add home executable paths
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+
+# Setup Golang
+export GOROOT="/usr/local/go"
+export GOPATH="$HOME/gowork"
+# [[ -d $GOPATH ]] || mkdir -p $GOPATH
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
+
+# Setup GVM
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+# Setup Java
+if [[ -d /usr/lib/jvm/java-7-oracle/ ]]; then
+	export PATH="$PATH:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin"
+fi
+
+# Setup python virtualenvs/pipenv
+export WORKON_HOME=$HOME/.local/share/virtualenvs
+export PROJECT_HOME=$HOME/gitroot
+
+# Setup pyenv
+export PYENV_ROOT=$HOME/.local/share/pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+
+# Setup pipsi
+export PIPSI_HOME=$HOME/.local/share/virtualenvs
+export PIPSI_BIN_DIR=$HOME/.local/bin
+
+# Setup pipx
+export PIPX_HOME=$HOME/.local/share/pipx
+export PIPX_BIN_DIR=$HOME/.local/bin
 
 if [ -f "$HOME/.shell-env.local" ]; then
   . "$HOME/.shell-env.local"
