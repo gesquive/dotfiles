@@ -79,10 +79,6 @@ function mv() {
   command mv -v -- "$1" "$newfilename"
 }
 
-if [ -f ~/.dotfiles/check_for_upgrade.sh ]; then
-    ~/.dotfiles/check_for_upgrade.sh
-fi
-
 if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
