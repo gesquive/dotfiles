@@ -41,14 +41,14 @@ if ! has git; then
 fi
 
 if ! has yadm; then # install yadm
-    mkdir -p $(dirname ${YADM})
-    curl -fLo ${YADM} https://github.com/TheLocehiliosan/yadm/raw/master/yadm
-    chmod a+x ${YADM}
+    mkdir -p "$(dirname "${YADM}")"
+    curl -fLo "${YADM}" https://github.com/TheLocehiliosan/yadm/raw/master/yadm
+    chmod a+x "${YADM}"
 fi
 
 info "repo: ${REPO}"
 if [ -z "${REPO}" ]; then
-    REPO=https://github.com/gesquive/dotfiles.git}
+    REPO=https://github.com/gesquive/dotfiles.git
     if ssh -q git@github.com; [ $? -eq 1 ]; then
         REPO=git@github.com:gesquive/dotfiles.git
     fi
