@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 
-chmod 700 ${HOME}/.config
+chmod 700 "${HOME}/.config"
 
 # sparse checkout
-rm -rf ${HOME}/README.md ${HOME}/UNLICENSE
+rm -rf "${HOME}/README.md" "${HOME}/UNLICENSE"
 yadm gitconfig core.sparseCheckout true
 yadm sparse-checkout set '/*' '!README.md' '!UNLICENSE' '!Vagrantfile'
 
 # create shell logging directory
-mkdir -p ${HOME}/.logs
+mkdir -p "${HOME}/.logs"
 
-sh -c "$(wget https://starship.rs/install.sh -O -)" install -y --bin-dir ${HOME}/.local/bin/
+sh -c "$(wget https://starship.rs/install.sh -O -)" install -y --bin-dir "${HOME}/.local/bin/"
 
-wget git.io/antigen -O ${HOME}/.local/share/antigen.zsh
+wget git.io/antigen -O "${HOME}/.local/share/antigen.zsh"
 
 TPM=${HOME}/.tmux/plugins/tpm
-if [ -d $TPM/.git ]; then
+if [ -d "$TPM/.git" ]; then
     (
-        cd ${TPM}
+        cd "${TPM}" || exit
 
         git fetch origin
 
@@ -30,7 +30,7 @@ if [ -d $TPM/.git ]; then
         git reset --hard origin/master
     )
 else
-    rm -rf ${TPM}
-    git clone https://github.com/tmux-plugins/tpm ${TPM}
+    rm -rf "${TPM}"
+    git clone https://github.com/tmux-plugins/tpm "${TPM}"
 fi
 
