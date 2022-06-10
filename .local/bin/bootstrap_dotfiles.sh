@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 set -ex
 
@@ -15,19 +15,19 @@ MAGENTA="$(tput setaf 5 2>/dev/null || printf '')"
 NO_COLOR="$(tput sgr0 2>/dev/null || printf '')"
 
 
-function info() {
+info() {
   printf '%s\n' "${BOLD}${GREY}>${NO_COLOR} $*"
 }
 
-function warn() {
+warn() {
   printf '%s\n' "${YELLOW}! $*${NO_COLOR}"
 }
 
-function error() {
+error() {
   printf '%s\n' "${RED}x $*${NO_COLOR}" >&2
 }
 
-functioncompleted() {
+completed() {
   printf '%s\n' "${GREEN}✓${NO_COLOR} $*"
 }
 
