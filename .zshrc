@@ -12,7 +12,7 @@ antigen bundle command-not-found
 antigen bundle docker
 antigen bundle docker-compose
 antigen bundle gitfast
-antigen bundle kubectl
+# antigen bundle kubectl
 antigen bundle pip
 antigen bundle ripgrep
 
