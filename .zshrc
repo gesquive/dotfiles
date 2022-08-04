@@ -14,6 +14,7 @@ antigen bundle docker-compose
 antigen bundle gitfast
 # antigen bundle kubectl
 antigen bundle pip
+antigen bundle pipenv
 antigen bundle ripgrep
 
 antigen bundle zsh-users/zsh-history-substring-search #./zsh-history-substring-search.zsh
@@ -24,6 +25,9 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 setopt HIST_IGNORE_SPACE
+
+# remove all the crappy oh-my-zsh aliases
+unalias -a
 
 # source common definitions
 if [ -f ~/.config/shell_env ]; then
