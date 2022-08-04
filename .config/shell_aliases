@@ -35,7 +35,6 @@ alias cd..='cd ..'
 alias cls='clear'
 alias del='rm -R'
 alias reboot='sudo shutdown --reboot now'
-alias g='gnome-open'
 alias web_own='sudo chown www-data:www-data'
 alias rudo='SSH_AUTH_SOCK=$SSH_AUTH_SOCK'
 
@@ -51,7 +50,6 @@ alias pathls='echo $PATH | tr ":" "\n"'
 alias whatthecommit="curl -s whatthecommit.com/index.txt"
 
 # Apps
-alias todo='topydo'
 alias gst='git status'
 
 # bash config edits
