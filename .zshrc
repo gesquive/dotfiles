@@ -14,13 +14,13 @@ antigen bundle docker-compose
 antigen bundle gitfast
 # antigen bundle kubectl
 antigen bundle pip
-antigen bundle pipenv
 antigen bundle ripgrep
 
 antigen bundle zsh-users/zsh-history-substring-search #./zsh-history-substring-search.zsh
 antigen bundle zsh-users/zsh-autosuggestions #./zsh-autosuggestions.zsh
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle gesquive/zsh-completions
 
 antigen apply
 
