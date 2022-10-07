@@ -32,14 +32,17 @@ shopt -s checkwinsize
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # source common definitions
-if [ -f ~/.config/shell_env ]; then
-    . ~/.config/shell_env
+if [ -f $HOME/.config/shell_env ]; then
+    source $HOME/.config/shell_env
 fi
-if [ -f ~/.config/shell_aliases ]; then
-    . ~/.config/shell_aliases
+if [ -f $HOME/.config/shell_common ]; then
+    source $HOME/.config/shell_common
 fi
-if [ -f ~/.config/shell_common ]; then
-    . ~/.config/shell_common
+if [ -f $HOME/.config/shell_aliases ]; then
+    source $HOME/.config/shell_aliases
+fi
+if [ -f $HOME/.bash_local ]; then
+    source $HOME/.bash_local
 fi
 
 # enable programmable completion features (you don't need to enable

@@ -79,6 +79,6 @@ function mv() {
   command mv -v -- "$1" "$newfilename"
 }
 
-if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
+if [ -f $HOME/.config/bash_aliases.local ]; then
+    source $HOME/.config/bash_aliases.local
 fi

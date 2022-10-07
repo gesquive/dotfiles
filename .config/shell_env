@@ -47,8 +47,8 @@ export PIPSI_BIN_DIR=$HOME/.local/bin
 export PIPX_HOME=$HOME/.local/share/pipx
 export PIPX_BIN_DIR=$HOME/.local/bin
 
-if [ -f "$HOME/.shell-env.local" ]; then
-  . "$HOME/.shell-env.local"
+if [ -f "$HOME/.config/shell_env.local" ]; then
+  source "$HOME/.config/shell_env.local"
 fi
 
 umask 022
