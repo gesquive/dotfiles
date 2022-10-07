@@ -17,8 +17,16 @@ export LESS='-iFMRSX -x4'
 # Add home executable paths
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 
+# Setup brew
+if command -v brew >/dev/null; then
+    export BREW_PREFIX=$(brew --prefix)
+fi
+
 # Setup Golang
 export GOROOT="/usr/local/go"
+if [ -d $BREW_PREFIX/opt/go/libexec ]; then
+    export GOROOT="$BREW_PREFIX/opt/go/libexec"
+fi
 export GOPATH="$HOME/gowork"
 # [[ -d $GOPATH ]] || mkdir -p $GOPATH
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
