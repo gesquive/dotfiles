@@ -31,7 +31,7 @@ unalias -a
 
 # source common definitions
 if [ -f ~/.config/shell_env ]; then
-    . ~/.config/shell_env
+    source ~/.config/shell_env
 fi
 if [ -f ~/.config/shell_common ]; then
     source ~/.config/shell_common

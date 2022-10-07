@@ -55,7 +55,7 @@ alias whatthecommit="curl -s whatthecommit.com/index.txt"
 alias gst='git status'
 
 # bash config edits
-alias edit_aliases='vim ~/.config/shell_aliases && . ~/.config/shell_aliases'
+alias edit_aliases='vim ~/.config/shell_aliases && source ~/.config/shell_aliases'
 alias update_dotfiles='~/.dotfiles/bootstrap_dotfiles.sh'
 
 
