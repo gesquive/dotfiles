@@ -1,8 +1,14 @@
 export ADOTDIR=$HOME/.local/share/antigen
 source "${HOME}/.local/share/antigen.zsh"
 
+if command -v starship >/dev/null; then
+    export STARSHIP_ACTIVE=true
+fi
+
 # Select theme
-antigen theme denysdovhan/spaceship-prompt
+if [ -z "$STARSHIP_ACTIVE" ]; then
+    antigen theme denysdovhan/spaceship-prompt
+fi
 
 # Load the oh-my-zsh library
 antigen use oh-my-zsh
@@ -43,6 +49,7 @@ if [ -f ~/.zsh_local ]; then
     source ~/.zsh_local
 fi
 
-if command -v starship >/dev/null; then
+if [ -n "$STARSHIP_ACTIVE" ]; then
     eval "$(starship init zsh)"
 fi
+
