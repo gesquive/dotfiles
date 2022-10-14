@@ -27,7 +27,7 @@ export GOROOT="/usr/local/go"
 if [ -d $BREW_PREFIX/opt/go/libexec ]; then
     export GOROOT="$BREW_PREFIX/opt/go/libexec"
 fi
-export GOPATH="$HOME/gowork"
+export GOPATH="$HOME/.local/share/go"
 # [[ -d $GOPATH ]] || mkdir -p $GOPATH
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 
