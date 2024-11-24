@@ -14,7 +14,7 @@ if [ "$TERM" != "dumb" ] && [ -x "$(command -v dircolors)" ]; then
     alias egrep='egrep --color=auto'
     alias less='less --raw-control-chars'
 elif [ "$TERM" != "dumb" ]; then
-    alias ls='ls -G'
+    alias ls='ls --color=auto'
 fi
 
 # some more ls aliases
