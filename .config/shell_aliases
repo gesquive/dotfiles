@@ -53,13 +53,14 @@ alias whatthecommit="curl -s whatthecommit.com/index.txt"
 
 # Apps
 alias gst='git status'
+alias ibrew='arch -x86_64 brew'
 
 # bash config edits
 alias edit_aliases='vim ~/.config/shell_aliases && source ~/.config/shell_aliases'
 alias update_dotfiles='~/.dotfiles/bootstrap_dotfiles.sh'
 
 
-mkcd() {  mkdir "$@" && cd "$@";}
+mkcd() { mkdir "$@" && cd "$@"; }
 
 cgrep() { grep --color=always "$@" . | less -R; }
 
