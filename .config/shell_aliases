@@ -51,6 +51,19 @@ alias hide_prev='history -d $((HISTCMD-2)) && history -d $((HISTCMD-1))'
 alias pathls='echo $PATH | tr ":" "\n"'
 alias whatthecommit="curl -s whatthecommit.com/index.txt"
 
+# Docker aliases
+#(( ${+commands[docker-compose]} )) && dccmd='docker-compose' || dccmd='docker compose'
+command -v docker-compose >/dev/null 2>&1 && dccmd='docker-compose' || dccmd='docker compose'
+alias dc="$dccmd"
+alias dcps="$dccmd ps"
+alias dcstop="$dccmd stop"
+alias dcup="$dccmd up"
+alias dcupd="$dccmd up -d"
+alias dcl="$dccmd logs"
+alias dclf="$dccmd logs -f"
+dcrestart() { dc stop $1 && dc up -d $1; }
+unset dccmd
+
 # Apps
 alias gst='git status'
 alias ibrew='arch -x86_64 brew'
