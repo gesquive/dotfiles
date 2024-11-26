@@ -1,20 +1,17 @@
 # Alias definitions.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-# enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ] && [ -x "$(command -v dircolors)" ]; then
-    test -r ${HOME}/.dircolors && eval "$(dircolors -b ${HOME}/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto -h'
-    alias dir='ls --color=auto --format=vertical'
-    alias vdir='ls --color=auto --format=long'
-    alias l.='ls -dF .[a-zA-Z0-9]* --color=tty'
-    alias ll.='ls -dlF .[a-zA-Z0-9]* --color=tty'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+if [ "$TERM" != "dumb" ]; then
+    if [ -x "$(command -v dircolors)" ]; then
+        # enable color support if available
+        test -r ${HOME}/.dircolors && eval "$(dircolors -b ${HOME}/.dircolors)" || eval "$(dircolors -b)"
+    fi
+
+    alias ls='ls -h --color=always'
+    alias grep='grep --color=always'
+    alias fgrep='fgrep --color=always'
+    alias egrep='egrep --color=always'
     alias less='less --raw-control-chars'
-elif [ "$TERM" != "dumb" ]; then
-    alias ls='ls --color=auto'
 fi
 
 # some more ls aliases
@@ -22,8 +19,12 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias lla='ls -lA'
-alias ld='ls -al -d * | egrep "^d"' # only subdirectories
+alias ld='ls -al -d *\' # only subdirectories
 alias lt='ls -alt | head -20' # recently changed files
+alias dir='ls --format=vertical'
+alias vdir='ls --format=long'
+alias l.='ls -dF .[a-zA-Z0-9]*'
+alias ll.='ls -dlF .[a-zA-Z0-9]*'
 
 # directory tree - http://www.shell-fu.org/lister.php?id=209
 alias tdir='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"'
@@ -81,7 +82,7 @@ start_ssh_agent() { eval "$(ssh-agent -s)" && ssh-add; }
 
 # Source: http://askubuntu.com/a/152005/17577
 lso() {
-    ls -alG "$@" | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(" %0o ",k);print}';
+    ls -al "$@" | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(" %0o ",k);print}';
 }
 
 # source: https://gist.github.com/premek/6e70446cfc913d3c929d7cdbfe896fef
