@@ -68,6 +68,7 @@ unset dccmd
 # Apps
 alias gst='git status'
 alias ibrew='arch -x86_64 brew'
+prg() { rg --json $@ | delta; }
 
 # bash config edits
 alias edit_aliases='vim ~/.config/shell_aliases && source ~/.config/shell_aliases'
