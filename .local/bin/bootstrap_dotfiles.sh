@@ -1,8 +1,17 @@
 #!/usr/bin/env sh
 
-set -ex
+set -e
 
 YADM=${HOME}/.local/bin/yadm
+
+# Check required dependencies
+readonly DEPENDENCIES="tput git curl"
+for dependency in ${DEPENDENCIES}; do
+  if ! command -v "${dependency}" > /dev/null 2>&1; then
+    echo "ERROR: command '${dependency}' not found" >&2
+    exit 2
+  fi
+done
 
 # BOLD="$(tput bold 2>/dev/null || printf '')"
 # GREY="$(tput setaf 0 2>/dev/null || printf '')"
@@ -39,11 +48,6 @@ completed() {
 has() {
   command -v "$1" 1>/dev/null 2>&1
 }
-
-if ! has git; then
-    error "git is not installed"
-    exit 1
-fi
 
 if ! has yadm; then # install yadm
     mkdir -p "$(dirname "${YADM}")"
