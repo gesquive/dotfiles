@@ -3,7 +3,7 @@ These dotfiles have been tested in Nix and OSX. If you want to try them, I would
 
 ## Usage
 ### Install
-To install, download and run.
+To install, download run the following:
 ```
-sh -c "$(wget https://raw.githubusercontent.com/gesquive/dotfiles/main/.local/bin/bootstrap_dotfiles.sh -O -)"
+curl -sSfL "https://raw.githubusercontent.com/gesquive/dotfiles/main/.local/bin/bootstrap_dotfiles.sh" | sh
 ```

@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 chmod 700 "${HOME}/.config"
 
-# sparse checkout
+# configure sparse checkout for yadm
 rm -rf "${HOME}/README.md" "${HOME}/UNLICENSE"
 yadm gitconfig core.sparseCheckout true
 yadm sparse-checkout set '/*' '!README.md' '!UNLICENSE' '!Vagrantfile'
@@ -10,10 +10,15 @@ yadm sparse-checkout set '/*' '!README.md' '!UNLICENSE' '!Vagrantfile'
 # create shell logging directory
 mkdir -p "${HOME}/.logs"
 
-sh -c "$(wget https://starship.rs/install.sh -O -)" install -y --bin-dir "${HOME}/.local/bin/"
+# install starship
+# sh -c "$(wget https://starship.rs/install.sh -O -)" install -y --bin-dir "${HOME}/.local/bin/"
+curl -sSfL https://starship.rs/install.sh | sh -s -- -y --bin-dir "${HOME}/.local/bin/"
 
-wget git.io/antigen -O "${HOME}/.local/share/antigen.zsh"
+# install antigen
+# wget git.io/antigen -O "${HOME}/.local/share/antigen.zsh"
+curl -sSfLo "${HOME}/.local/share/antigen.zsh" git.io/antigen
 
+# install tpm
 TPM=${HOME}/.tmux/plugins/tpm
 if [ -d "$TPM/.git" ]; then
     (
