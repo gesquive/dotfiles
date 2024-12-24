@@ -51,7 +51,7 @@ has() {
 
 if ! has yadm; then # install yadm
     mkdir -p "$(dirname "${YADM}")"
-    curl -fLo "${YADM}" https://github.com/TheLocehiliosan/yadm/raw/master/yadm
+    curl -sSfLo "${YADM}" https://github.com/TheLocehiliosan/yadm/raw/master/yadm
     chmod a+x "${YADM}"
 fi
 
