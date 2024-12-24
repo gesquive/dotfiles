@@ -55,14 +55,15 @@ if ! has yadm; then # install yadm
     chmod a+x "${YADM}"
 fi
 
-info "repo: ${REPO}"
 if [ -z "${REPO}" ]; then
     REPO=https://github.com/gesquive/dotfiles.git
     if ssh -o StrictHostKeyChecking=accept-new -q git@github.com; [ $? -eq 1 ]; then
         REPO=git@github.com:gesquive/dotfiles.git
     fi
 fi
+info "repo: ${REPO}"
 
 # have yadm grab the dotfiles and bootstrap
+export PATH=$HOME/.local/bin:$PATH
 ${YADM} clone -f --bootstrap ${REPO}
 ${YADM} status
