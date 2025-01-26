@@ -39,3 +39,7 @@ else
     git clone https://github.com/tmux-plugins/tpm "${TPM}"
 fi
 
+# install distillery
+# bash -c "$(wget https://github.com/ekristen/distillery/releases/latest/download/installer.sh -O -)"
+curl -sSfL "https://github.com/ekristen/distillery/releases/latest/download/installer.sh" | sh
+
