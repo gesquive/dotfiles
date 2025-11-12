@@ -26,6 +26,11 @@ elif [ -f /usr/local/bin/brew ]; then
     export PATH="$BREW_PREFIX/bin:$PATH"
 fi
 
+# Setup distillery
+if [ -f /opt/distillery/bin ]; then
+    export PATH=/opt/distillery/bin:$PATH
+fi
+
 # Setup Golang
 export GOROOT="/usr/local/go"
 if [ -d $BREW_PREFIX/opt/go/libexec ]; then
