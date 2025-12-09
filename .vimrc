@@ -36,6 +36,12 @@ nnoremap j gj
 nnoremap k gk
 nnoremap B ^
 nnoremap E $
+nnoremap <A-up>   :m .-2<CR>==
+nnoremap <A-down> :m .+1<CR>==
+inoremap <A-up>   <Esc>:m .-2<CR>==gi
+inoremap <A-down> <Esc>:m .+1<CR>==gi
+vnoremap <A-up>   :m '<-2<CR>gv=gv
+vnoremap <A-down> :m '>+1<CR>gv=gv
 " }}}
 " Launch Config {{{
 runtime! debian.vim
