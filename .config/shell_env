@@ -14,9 +14,6 @@ export VISUAL=$EDITOR
 export PAGER=less
 export LESS='-iFMRSX -x4'
 
-# Add home executable paths
-export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-
 # Setup brew
 if [ -f /opt/homebrew/bin/brew ]; then
     export BREW_PREFIX=/opt/homebrew
@@ -26,12 +23,17 @@ elif [ -f /usr/local/bin/brew ]; then
     export PATH="$BREW_PREFIX/bin:$PATH"
 fi
 
-# Setup distillery
-if [ -f /opt/distillery/bin ]; then
+# Add distillery paths
+if [ -d /opt/distillery/bin ]; then
     export PATH=/opt/distillery/bin:$PATH
 fi
 
-# Setup Golang
+# Add Java paths
+if [[ -n "$JAVA_HOME" && -d "$JAVA_HOME/bin" ]]; then
+	export PATH="$PATH:$JAVA_HOME/bin"
+fi
+
+# Setup Golang paths
 export GOROOT="/usr/local/go"
 if [ -d $BREW_PREFIX/opt/go/libexec ]; then
     export GOROOT="$BREW_PREFIX/opt/go/libexec"
@@ -40,13 +42,8 @@ export GOPATH="$HOME/.local/share/go"
 # [[ -d $GOPATH ]] || mkdir -p $GOPATH
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 
-# Setup GVM
+# Setup GVM environment
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
-# Setup Java
-if [[ -d /usr/lib/jvm/java-7-oracle/ ]]; then
-	export PATH="$PATH:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin"
-fi
 
 # Setup python virtualenvs/pipenv
 export WORKON_HOME=$HOME/.local/share/virtualenvs
@@ -63,6 +60,9 @@ export PIPSI_BIN_DIR=$HOME/.local/bin
 # Setup pipx
 export PIPX_HOME=$HOME/.local/share/pipx
 export PIPX_BIN_DIR=$HOME/.local/bin
+
+# Add home bin paths
+export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 
 if [ -f "$HOME/.config/shell_env.local" ]; then
   source "$HOME/.config/shell_env.local"
