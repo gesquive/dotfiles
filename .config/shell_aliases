@@ -49,7 +49,7 @@ alias hide_me='history -d $((HISTCMD-1))'
 alias hide_prev='history -d $((HISTCMD-2)) && history -d $((HISTCMD-1))'
 
 # Random
-alias pathls='echo $PATH | tr ":" "\n"'
+alias pathls='echo $PATH | tr ":" "\n" | less'
 alias whatthecommit="curl -s whatthecommit.com/index.txt"
 
 # Docker aliases
