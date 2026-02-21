@@ -1,0 +1,103 @@
+#!/bin/sh
+# arguments being passed in are: path, width, height, x, y
+
+if [ "$#" -eq 0 ]; then
+  echo "Usage: $(basename "$0") <file>" >&2
+  exit 1
+fi
+
+has() {
+  command -v "$1" > /dev/null 2>&1
+}
+
+run() {
+  cmd="$1"
+  shift
+  if has "$cmd"; then
+    "$cmd" "$@"
+  else
+    echo "'$cmd' not found"
+  fi
+}
+
+path=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+case "$path" in
+    *.tgz|*.tar.gz)
+        run tar tzf "$1"
+        exit 1;;
+    *.tar.bz2|*.tbz2)
+        run tar tjf "$1"
+        exit 1;;
+    *.tar.xz)
+        run tar tJf "$1"
+        exit 1;;
+    *.tar.txz|*.txz|*.xz)
+        run xz --list "$1"
+        exit 1;;
+    *.tar)
+        run tar tf "$1"
+        exit 1;;
+    *.zip|*.jar|*.war|*.ear|*.oxt)
+        # run unzip -l "$1"
+        run python3 -m zipfile -l "$1" | tail -n +2
+        exit 1;;
+    *.gz)
+        run gzip -l "$1"
+        exit 1;;
+    *.rar)
+        run unrar l "$1"
+        exit 1;;
+    *.7z)
+        run 7z l "$1"
+        exit 1;;
+    *.[1-8])
+        run man "$1" | col -b
+        exit 1;;
+    *.o)
+        run nm "$1" | less
+        exit 1;;
+    *.torrent)
+        run transmission-show "$1"
+        exit 1;;
+    *.iso)
+        run iso-info --no-header -l "$1"
+        exit 1;;
+    *odt,*.ods,*.odp,*.sxw)
+        run odt2txt "$1"
+        exit 1;;
+    *.doc)
+        run catdoc "$1"
+        exit 1;;
+    *.docx)
+        run docx2txt "$1" -
+        exit 1;;
+    *.csv)
+        run column -t -s, "$1"
+        # run bat -fp "$1"
+        # run cat "$1" | sed s/,/\\n/g
+        exit 1;;
+    *.json)
+        run jq -C '.' "$1"
+        exit 1;;
+    *.pdf)
+        run pdftotext "$1" - | less
+        exit 1;;
+    *.bmp|*.jpg|*.jpeg|*.png|*.xpm|*.heic)
+        run exiftool "$1"
+        exit 1;;
+    *.wav|*.mp3|*.flac|*.m4a|*.wma|*.ape|*.ac3|*.og[agx]|*.spx|*.opus|*.as[fx])
+        run exiftool "$1"
+        exit 1;;
+    *.avi|*.mp4|*.wmv|*.dat|*.3gp|*.ogv|*.mkv|*.mpg|*.mpeg|*.vob|*.fl[icv]|*.m2v|*.mov|*.webm|*.ts|*.mts|*.m4v|*.r[am]|*.qt|*.divx)
+        # ffprobe -v quiet -print_format json -show_format -show_streams "$1"
+        run exiftool "$1"
+        exit 1;;
+    *)
+esac
+
+case "$(file -Lb --mime-type -- "$1")" in
+text/*)
+    run bat -fp "$1";;
+*)
+    run cat "$1";;
+esac
