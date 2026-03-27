@@ -11,22 +11,26 @@ if [ "$TERM" != "dumb" ]; then
     alias grep='grep --color=always'
     alias fgrep='fgrep --color=always'
     alias egrep='egrep --color=always'
-    alias less='less --raw-control-chars'
+fi
+
+if command -v lsd > /dev/null 2>&1; then
+    alias ls='lsd -h'
+    alias lr='lsd -l --timesort --color=always | head -20' # recently changed files
+    alias tree='lsd --tree'
+else
+    alias lr='ls -alt | head -20' # recently changed files
 fi
 
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='ls -F'
 alias lla='ls -lA'
-alias ld='ls -al -d *\' # only subdirectories
-alias lt='ls -alt | head -20' # recently changed files
-alias dir='ls --format=vertical'
-alias vdir='ls --format=long'
+alias ld='ls -al -d */' # only subdirectories
 alias l.='ls -dF .[a-zA-Z0-9]*'
 alias ll.='ls -dlF .[a-zA-Z0-9]*'
 
-# directory tree - http://www.shell-fu.org/lister.php?id=209
+# directory tree - https://www.shell-fu.org/tips.php?id=209
 alias tdir='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"'
 
 # display file sizes
