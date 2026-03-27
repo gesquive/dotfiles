@@ -62,6 +62,9 @@ case "$path" in
     *.iso)
         run iso-info --no-header -l "$1"
         exit 1;;
+    *.dmg)
+        run hdiutil imageinfo "$1"
+        exit 1;;
     *odt,*.ods,*.odp,*.sxw)
         run odt2txt "$1"
         exit 1;;
