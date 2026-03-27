@@ -1,3 +1,8 @@
+# lf configuration file
+# Documentation: https://github.com/gokcehan/lf/blob/master/doc.md
+# Example config: https://github.com/gokcehan/lf/blob/master/etc/lfrc.example
+# Good base: https://github.com/DreamMaoMao/dotfile/blob/983a9efcc9cddb51889a8411f197b5d18fc48ff1/lf/lfrc
+
 set previewer ~/.local/bin/preview
 
 # Basic settings
